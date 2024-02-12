@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "google-api-auth": "ts-node ./dist/src/google-api-auth.js",
-    "start": "ts-node ./dist/src/index.js",
-    "dev": "nodemon --es-module-specifier-resolution=node ./dist/src/index.js",
+    "start": "npm run build && ts-node ./dist/src/index.js",
+    "dev": "nodemon --es-module-specifier-resolution=node ./dist/src/google-api-auth.js",
     "calendar": "ts-node ./dist/src/calendar.js"
   },
   "keywords": [],
