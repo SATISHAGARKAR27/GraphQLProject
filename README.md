@@ -1,2 +1,0 @@
-# GraphQLProject
-New GraphQL setup
