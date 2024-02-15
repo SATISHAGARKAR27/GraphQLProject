@@ -4,8 +4,7 @@ import Mercurius from "mercurius";
 import { typeDef } from "./schema/schema";
 import {resolvers } from "./schema/resolvers"
 import localConfig from "./config/config";
-import * as fs from "fs-extra";
-import { oauth2Client , setAccessTokens} from "./shared";
+import { oauth2Client } from "./shared";
 
 const port = 3000;
 

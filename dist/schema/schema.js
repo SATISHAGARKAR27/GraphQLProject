@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.typeDef = void 0;
 exports.typeDef = `
-scalar JSON
-scalar JSONObject
 type Book {
     id:ID!
     title: String!
@@ -28,12 +26,5 @@ type Book {
     books: [Book!]!
     calendars: [CalendarEvent!]!
     contacts: [Contact!]!
-  }
-  type Data {
-    access_token: String!
-    refresh_token: String!
-  }
-  type Mutation {
-    setOAuthCode(code: String!): Data!
   }
 `;

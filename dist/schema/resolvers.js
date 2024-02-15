@@ -23,9 +23,4 @@ exports.resolvers = {
             return (0, calendarsServices_1.getContact)();
         })
     }
-    // Mutation: {
-    //     setOAuthCode: async () => {
-    //     return getAutToken(localConfig.code);
-    //   }
-    // }
 };
