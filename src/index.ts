@@ -16,6 +16,16 @@ const fastify = Fastify({logger: true})
     graphiql: true
   });
 
+  try {
+    fastify.listen({ port },()=>{
+      console.log(`Server is running on http://localhost:${port}/googleauth`);
+    })
+  } catch (err) {
+    fastify.log.error(err);
+    console.log(err);
+    process.exit(1)
+  }
+
 fastify.get('/googleauth', (request, response) => {
   const authUrl = oauth2Client.generateAuthUrl({
     access_type: localConfig.access_type,
@@ -27,20 +37,7 @@ fastify.get('/googleauth', (request, response) => {
 
 fastify.get('/callbacktoken', async (req:any,res) => {
     const code = req.query.code;
-    setAccessTokens(code)
-    const authtokens = await oauth2Client.getToken(code);
-    fs.writeJson(process.env.TOKEN_PATH, authtokens);
-    const { tokens } = authtokens;
-    console.log("tokens===",tokens);
+    const { tokens } = await oauth2Client.getToken(code);
     oauth2Client.setCredentials(tokens);
     res.redirect('http://localhost:3000/graphiql')
   });
-  try {
-    fastify.listen({ port },()=>{
-      console.log(`Server is running on http://localhost:${port}/googleauth`);
-    })
-  } catch (err) {
-    fastify.log.error(err);
-    console.log(err);
-    process.exit(1)
-  }

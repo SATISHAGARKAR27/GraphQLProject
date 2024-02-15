@@ -1,13 +1,11 @@
 import { google } from "googleapis";
-import { oauth2Client, fetchAccessTokens } from "../shared";
+import { oauth2Client } from "../shared";
 
 export async function list() {
-  const oauth2Value =  await fetchAccessTokens()
-  console.log("fetchAccessTokens##########>",oauth2Value);
   
   const calendarClient = google.calendar({
     version: "v3",
-    auth: oauth2Value,
+    auth: oauth2Client,
   });
   try {
     const { data: calendars } = await calendarClient.calendarList.list();
@@ -22,7 +20,6 @@ export async function list() {
 }
 
 export async function getContact() {
-  console.log("getContact%%%%%%%%>",oauth2Client);
   const contectClient = google.people({
     version: "v1",
     auth: oauth2Client,

@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "google-api-auth": "ts-node ./dist/src/google-api-auth.js",
     "start": "npm run build && ts-node ./dist/src/index.js",
-    "dev": "nodemon",
-    "calendar": "ts-node ./dist/src/calendar.js"
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
