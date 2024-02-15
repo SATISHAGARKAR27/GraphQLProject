@@ -1,6 +1,4 @@
 export const typeDef = `
-scalar JSON
-scalar JSONObject
 type Book {
     id:ID!
     title: String!
@@ -25,12 +23,5 @@ type Book {
     books: [Book!]!
     calendars: [CalendarEvent!]!
     contacts: [Contact!]!
-  }
-  type Data {
-    access_token: String!
-    refresh_token: String!
-  }
-  type Mutation {
-    setOAuthCode(code: String!): Data!
   }
 `;
